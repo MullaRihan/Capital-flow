@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <aside>
+        <div id="sidebar"></div>
+    </aside>
+    <main>
+        <header id="mainHeader">
+
+        </header>
+        <section class="tabSection " id="dashboard">
+
+            <div class="contentContainer">
+                <div class="totalBalance card">
+                    <div class="cardHeader">
+                        <div class="cardInfo">
+                            <p>TOTAL BALANCE</p>
+                            <p id="totalBalance" class="head-amount">$23532343</p>
+
+                        </div>
+                        <img src="Assets/Images/Main content images and Logos/bankLogo.svg" alt="Bank Logo" width="30">
+                    </div>
+                    <span id="balanceInsights">24% increased</span>
+                </div>
+                <div class="monthlySpend card">
+                    <div class="cardHeader">
+                        <div>
+
+                            <p>MONTHLY SPEND</p>
+                            <p id="monthlySpend" class="head-amount">$342345234</p>
+                        </div>
+                        <img src="Assets/Images/Main content images and Logos/shoppingLogo.svg" alt="Shopping Logo"
+                            width="30">
+                    </div>
+                    <span id="spendInsights"></span>
+                </div>
+                <div class="budgetRemaining card">
+                    <div class="cardHeader">
+                        <div>
+
+                            <p>BUDGET REMAINING</p>
+                            <p id="budgetRemaining" class="head-amount">$342345234</p>
+                        </div>
+                        <img src="Assets/Images/Main content images and Logos/remainingLogo.svg" alt="Shopping Logo"
+                            width="30">
+                    </div>
+                    <span id="remainingInsights"></span>
+                </div>
+
+                <div class="monthlySpendingChart card">
+                    <div class="chartHeader">
+                        <h3>Monthly Spending</h3>
+
+                        <select id="monthRange">
+                            <option>Last 6 Months</option>
+                            <option>Last 12 Months</option>
+                        </select>
+                    </div>
+
+                    <div class="chart">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="categoryBreakdown card">
+                    <div class="chartHeader">
+                        <h3>Category Breakdown</h3>
+                    </div>
+
+                    <div class="chart">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+                <div class="recentTransactions card">
+                    <div class="transactionHeader">
+                        <h3>Recent Transactions</h3>
+                        <button id="viewAllBtn" class="view-all-btn">View All</button>
+                    </div>
+                    <table>
+                        <thead class="trxDetailHeader">
+                            <tr>
+                                <th>TRANSACTION</th>
+                                <th>CATEGORY</th>
+                                <th>DATE</th>
+                                <th>AMOUNT</th>
+                            </tr>
+                        </thead>
+                        <tbody class="trxDetail">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+        <section id="transactions" class="tabSection">
+
+        </section>
+        <section id="settings" class="tabSection">
+
+        </section>
+        <section id="reports" class="tabSection">
+
+        </section>
+
+        <section id="newEntry" class="tabSection active">
+            <div class="new-entry">
+
+                <div class="input-container">
+                    <div class="income-expense">
+                        <div>
+                            <button id="expenseBtn" class="button active">Expense</button>
+                            <button id="incomebtn" class="button">Income</button>
+                        </div>
+                        <p id="entryId">ID: 734AJ9Lk</p>
+                    </div>
+                    <div class="expense">
+                        <div class="inputDetail">
+                            <div class="input-amount input-box" id="inptAmount">
+                                <p>Amount</p>
+                                <input type="number" placeholder="Enter amount...." id="expenseAmount">
+                            </div>
+                            <div class="input-date-category input-box">
+                                <div>
+                                    <p>Date</p>
+                                    <input type="date" id="expenseDate">
+                                </div>
+                                <div>
+                                    <p>Category</p>
+                                    <select name="category" id="categoryType">
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Street Food">Street Food</option>
+                                        <option value="Shoping">Shoping</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-merchent input-box">
+                                <p>Merchant / Payee</p>
+                                <input type="text" placeholder="Enter merchent name...." id="expenseMerchent">
+                            </div>
+                            <div class="input-notes input-box">
+                                <p>Notes(Optional)</p>
+                                <textarea name="note" id="note"
+                                    placeholder="Add additional detail on this note"></textarea>
+                            </div>
+                        </div>
+                        <div class="input-receipt">
+                            <label class="upload-box">
+                                <input type="file" id="fileInput" multiple accept="image/*">
+                                <div class="upload-content">
+                                    <span><img src="Assets/Images/Main content images and Logos/uploadLogo.svg"
+                                            alt="Upload Logo" width="30"></span>
+                                    <small>Click or drag & drop</small>
+                                </div>
+                            </label>
+                            <div class="summary-box">
+                                <h2>ENTRY SUMMARY</h2>
+                                <div>
+                                    <p>Budget Category</p>
+                                    <span>Dining Out</span>
+                                </div>
+                                <div>
+                                    <p>Remaining Monthly</p>
+                                    <span>$084989</span>
+                                </div>
+                                <div class="horizontal-bar"></div>
+                                <div class="summary-msg">
+                                    <p><span><img src="Assets/Images/Main content images and Logos/noteLogo.svg"
+                                                alt="Note Logo" width="30px"></span>This will be added to your personal
+                                        account.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="income">
+
+                    </div>
+                    <div class="save-btn">
+                        <button id="cancelBtn">Cancel</button>
+                        <button id="saveBtn">Save Transaction</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js"></script>
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
