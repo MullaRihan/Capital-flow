@@ -18,10 +18,10 @@ A personal expense tracker built with HTML, CSS and JavaScript.
 - Chart.js
 
 ## Screenshots
-(add a screenshot of your UI)
+
 
 ## Live Demo
-(link here - explained below)
+
 
 ## What I Learned
 - Component-based thinking
