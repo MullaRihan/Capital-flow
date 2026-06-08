@@ -23,7 +23,7 @@
                     <div class="cardHeader">
                         <div class="cardInfo">
                             <p>TOTAL BALANCE</p>
-                            <p id="totalBalance" class="head-amount">$23532343</p>
+                            <p id="totalBalance" class="head-amount"></p>
 
                         </div>
                         <img src="Assets/Images/Main content images and Logos/bankLogo.svg" alt="Bank Logo" width="30">
@@ -35,7 +35,7 @@
                         <div>
 
                             <p>MONTHLY SPEND</p>
-                            <p id="monthlySpend" class="head-amount">$342345234</p>
+                            <p id="monthlySpend" class="head-amount"></p>
                         </div>
                         <img src="Assets/Images/Main content images and Logos/shoppingLogo.svg" alt="Shopping Logo"
                             width="30">
@@ -47,7 +47,7 @@
                         <div>
 
                             <p>BUDGET REMAINING</p>
-                            <p id="budgetRemaining" class="head-amount">$342345234</p>
+                            <p id="budgetRemaining" class="head-amount"></p>
                         </div>
                         <img src="Assets/Images/Main content images and Logos/remainingLogo.svg" alt="Shopping Logo"
                             width="30">
@@ -94,15 +94,45 @@
                             </tr>
                         </thead>
                         <tbody class="trxDetail">
-                            
+
                         </tbody>
                     </table>
                 </div>
             </div>
 
         </section>
-        <section id="transactions" class="tabSection">
+        <section id="transactions" class="tabSection active">
+            <div class="transaction-container">
+                <div class="transaction-header">
+                    <div class="trx-title">
+                        <h3>Transaction History</h3>
+                        <p>Review and manage your detailed spending records</p>
+                    </div>
+                    <div class="trx-actions">
+                        <button>Choose Month</button>
+                        <button>Export</button>
+                    </div>
 
+                </div>
+                <div class="transaction-footer">
+
+                    <table class="trx-table">
+                        <thead>
+
+                            <tr>
+                                <th>DATE</th>
+                                <th>DESCRIPTION</th>
+                                <th>CATEGORY</th>
+                                <th>AMOUNT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trxTableData">
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
         </section>
         <section id="settings" class="tabSection">
 
@@ -111,7 +141,7 @@
 
         </section>
 
-        <section id="newEntry" class="tabSection active">
+        <section id="newEntry" class="tabSection">
             <div class="new-entry">
 
                 <div class="input-container">

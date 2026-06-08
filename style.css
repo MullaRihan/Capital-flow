@@ -570,3 +570,92 @@ td {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
+.expense-amount{
+    color: red;
+}
+.income-amount{
+    color: green;
+}
+
+/* TRANSACTION SECTION  */
+
+.transaction-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.5rem; */
+    /* margin-top: 2rem; */
+}
+
+.transaction-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+}
+
+.trx-actions{
+    display:flex;
+    gap: 1rem;
+    padding: 10px;
+    background-color: var(--neutral-color);
+    border-radius: 10px;
+}
+
+.trx-actions button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    transition: all 0.3s ease;
+}
+
+.trx-actions button:hover{
+    background-color: green;
+    transform: translateY(-5px);
+    cursor: pointer;
+
+}
+
+.trx-table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    background-color: var(--neutral-color);
+    /* border-radius: 10px; */
+}
+
+.transaction-footer{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.trx-table tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.trx-table th, td{
+    padding: 10px;
+    /* border: 1px solid black; */
+}
+
+.trx-table tbody tr{
+    transition: transform 0.3s ease;
+}
+
+.trx-table tbody tr:hover{
+    background-color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.category{
+    background-color: var(--secondary-color);
+    color: green   ;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}

@@ -1,6 +1,7 @@
 let incomeAmount = 0;
 let expenseAmount = 0;
-
+let totalBalance = 0;
+let remainingBalance = 0;
 
 function initTabs() {
     const links = document.querySelectorAll(".sidebar-link");
@@ -21,9 +22,8 @@ function initTabs() {
     });
 }
 
-const entries = JSON.parse(localStorage.getItem("entries") || "[]");
-// localStorage.removeItem("entries");
-renderTable();
+let entries = JSON.parse(localStorage.getItem("entries") || "[]");
+
 function entry(currentType) {
 
     const amount = document.getElementById("expenseAmount").value;
@@ -31,6 +31,11 @@ function entry(currentType) {
     const category = document.getElementById("categoryType").value;
     const merchentName = document.getElementById("expenseMerchent").value;
     const note = document.getElementById("note").value;
+
+    if (amount === "" || date === "" || category === "" || merchentName === "") {
+        alert("Please fill all required fields");
+        return
+    }
 
     entries.push(
         {
@@ -42,13 +47,13 @@ function entry(currentType) {
             note: note
         }
     );
-    console.log(currentType);
+    
+    console.log("function runned"); 
     localStorage.setItem("entries", JSON.stringify(entries));
-    console.log(JSON.parse(localStorage.getItem("entries")));
-
 
     renderTable();
     resetValues();
+    calculateAmount();
 };
 
 let currentType = "expense";
@@ -73,8 +78,10 @@ button.forEach(btn => {
 const saveBtn = document.getElementById("saveBtn");
 
 saveBtn.addEventListener("click", () => {
+
     entry(currentType);
 });
+
 
 function resetValues() {
     document.getElementById("expenseAmount").value = "";
@@ -86,15 +93,67 @@ function resetValues() {
 
 function renderTable() {
     const trxTable = document.querySelector(".trxDetail");
+    const trxTable2 = document.querySelector("#trxTableData");
+    trxTable2.innerHTML = "";
+    trxTable.innerHTML = "";
     entries.forEach(entry => {
         const tr = document.createElement("tr");
+        const tr2 = document.createElement("tr");
+        let tempAmount = 0;
+
+        if (entry.type === "expense") {
+            tempAmount = "-" + entry.amount;
+        }
+        else {
+            tempAmount = "+" + entry.amount;
+        }
+
+        let tempClass = entry.type == "expense" ? "expense-amount" : "income-amount";
+
         tr.innerHTML = `
             <td>${entry.merchentName}</td>
             <td>${entry.category}</td>
             <td>${entry.date}</td>
-            <td class = "amount">${entry.amount}</td>
+            <td class = "amount ${tempClass}">${tempAmount}</td>
+        `;
+
+        tr2.innerHTML = `
+        <td>${entry.date}</td>
+        <td>${entry.note}</td>
+        <td><span class = "category">${entry.category}</span></td>
+        <td class = "amount ${tempClass}" >${tempAmount}</td>
         `
+
         trxTable.append(tr);
+        trxTable2.append(tr2);
     }
     );
-};
+
+    
+}
+
+function calculateAmount() {
+    expenseAmount = 0;
+    incomeAmount = 0;
+    entries.forEach(entry => {
+        if (entry.type === "expense") {
+
+            expenseAmount += Number(entry.amount);
+        }
+        else {
+
+            incomeAmount += Number(entry.amount);
+        }
+    })
+
+    remainingBalance = 0;
+    totalBalance = 0;
+    remainingBalance = incomeAmount - expenseAmount;
+    totalBalance = incomeAmount;
+
+    document.getElementById("monthlySpend").innerText = "₹" + expenseAmount;
+    document.getElementById("budgetRemaining").innerText = "₹" + remainingBalance;
+    document.getElementById("totalBalance").innerText = "₹" + totalBalance;
+
+}
+

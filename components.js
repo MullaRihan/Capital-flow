@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ]);
 
     initTabs();
-    
+    renderTable();
+    calculateAmount();
 });
 
