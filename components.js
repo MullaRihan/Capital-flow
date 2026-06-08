@@ -23,14 +23,18 @@ function loadHeader() {
 };
 
 
+// In components.js
 document.addEventListener("DOMContentLoaded", async () => {
+    document.body.classList.add("loading");
+    
     await Promise.all([
         loadSidebar(),
         loadHeader()
     ]);
 
+    document.body.classList.remove("loading");
+    
     initTabs();
     renderTable();
     calculateAmount();
 });
-

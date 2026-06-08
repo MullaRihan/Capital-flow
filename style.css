@@ -659,3 +659,8 @@ td {
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
